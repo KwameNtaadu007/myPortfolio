@@ -1,27 +1,20 @@
-import { Component } from "react";
-import { Navbar, NavbarBrand } from "reactstrap";
-import Menu from "./components/Menu";
-import { DISHES } from "./components/shared/dishes";
+import React, { Component } from "react";
+import { BrowserRouter } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import "./App.css";
+import Main from "./components/Main";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      dishes: DISHES,
-    };
-  }
   render() {
     return (
-      <div className="App">
-        <Navbar dark color="primary">
-          <div className="container">
-            <NavbarBrand href="/">Confusion</NavbarBrand>
-          </div>
-        </Navbar>
-        <Menu dishes={this.state.dishes} />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Main />
+          <Footer />
+        </div>
+      </BrowserRouter>
     );
   }
 }
