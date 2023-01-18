@@ -1,22 +1,27 @@
-import React, { Component } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
 import Header from "./components/Header";
+import LandingSection from "./components/LandingSection";
+import ProjectsSection from "./components/ProjectsSection";
+import ContactMeSection from "./components/ContactMeSection";
 import Footer from "./components/Footer";
-import "./App.css";
-import Main from "./components/Main";
+import { AlertProvider } from "./context/alertContext";
+import Alert from "./components/Alert";
 
-class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <div className="App">
+function App() {
+  return (
+    <ChakraProvider>
+      <AlertProvider>
+        <main>
           <Header />
-          <Main />
+          <LandingSection />
+          <ProjectsSection />
+          <ContactMeSection />
           <Footer />
-        </div>
-      </BrowserRouter>
-    );
-  }
+          <Alert />
+        </main>
+      </AlertProvider>
+    </ChakraProvider>
+  );
 }
 
 export default App;
